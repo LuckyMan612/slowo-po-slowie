@@ -6,6 +6,11 @@ const output = document.getElementById("output");
 removeWord.addEventListener("click", function() {
   let text = input.value;
   let removedWord = wordToRemove.value;
-  let newText = text.replace(removedWord, "");
+  let lines = text.split("\n");
+  let newText = "";
+  for (let line of lines) {
+    let newLine = line.replace(removedWord, "");
+    newText += newLine + "<br>";
+  }
   output.innerHTML = newText;
 });
