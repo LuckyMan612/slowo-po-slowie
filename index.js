@@ -9,8 +9,8 @@ function removeWord() {
 
     for (var j = 0; j < words.length; j++) {
       if (words[j].indexOf(wordToRemove) !== -1) {
-        var index = words[j].indexOf(wordToRemove);
-        words[j] = words[j].substring(0, index - wordToRemove.length);
+        var index = words[j].indexOf(wordToRemove) + wordToRemove.length;
+        words[j] = words[j].substring(0, index);
         break;
       }
     }
