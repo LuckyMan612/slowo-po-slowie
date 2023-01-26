@@ -1,4 +1,3 @@
-<script>
 function removeWord() {
   var input = document.getElementById("input").value;
   var lines = input.split("\n");
