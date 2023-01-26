@@ -5,7 +5,13 @@ function removeWord() {
   var wordToRemove = prompt("Enter word to remove:");
 
   for (var i = 0; i < lines.length; i++) {
-    var words = lines[i].split(" ");
+    var words = lines[i].split(wordToRemove);
+    lines[i] = words.join(" ");
+    if (lines[i].endsWith(wordToRemove)) {
+    var words = lines[i].split(wordToRemove);
+    lines[i] = words.join(" ");
+    }
+  }
 
     for (var j = 0; j < words.length; j++) {
       if (words[j].indexOf(wordToRemove) !== -1) {
