@@ -1,16 +1,23 @@
-const input = document.getElementById("input");
-const wordToRemove = document.getElementById("wordToRemove");
-const removeWord = document.getElementById("removeWord");
-const output = document.getElementById("output");
+<script>
+function removeWord() {
+  var input = document.getElementById("input").value;
+  var lines = input.split("\n");
+  var newText = "";
+  var wordToRemove = prompt("Enter word to remove:");
 
-removeWord.addEventListener("click", function() {
-  let text = input.value;
-  let removedWord = wordToRemove.value;
-  let lines = text.split("\n");
-  let newText = "";
-  for (let line of lines) {
-    let newLine = line.replace(removedWord, "");
-    newText += newLine + "<br>";
+  for (var i = 0; i < lines.length; i++) {
+    var words = lines[i].split(" ");
+
+    for (var j = 0; j < words.length; j++) {
+      if (words[j].indexOf(wordToRemove) !== -1) {
+        var index = words[j].indexOf(wordToRemove) + wordToRemove.length;
+        words[j] = words[j].substring(0, index);
+        break;
+      }
+    }
+
+    newText += words.join(" ") + "<br>";
   }
-  output.innerHTML = newText;
-});
+
+  document.getElementById("output").innerHTML = newText;
+}
